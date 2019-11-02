@@ -6,7 +6,10 @@ var RoomsView = {
   initialize: function() {
   },
 
-  render: function() {
+  renderRoom: function(response) {
+    // debugger;
+    var test = Rooms.render({'roomname': response});
+    $('#rooms select').append(test);
   }
 
 };

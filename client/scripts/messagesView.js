@@ -2,10 +2,14 @@ var MessagesView = {
 
   $chats: $('#chats'),
 
-  initialize: function() {
+  initialize: function () {
+    Parse.readAll(function(data) {
+      console.log(data);
+    });
   },
 
-  render: function() {
+  renderMessage: function (response) {
+    var test = MessageView.render(response);
+    $('#chats').append(test);
   }
-
 };
