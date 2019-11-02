@@ -14,15 +14,17 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      // var message = "";
-      // $('#chats').append(data);
-
+      var message = '';
+      for (var i = 0; i < data.results.length; i++) {
+        if (data.results[i].hasOwnProperty('roomname') && data.results[i].hasOwnProperty('text') && data.results[i].hasOwnProperty('username')) {
+          $('#chats').append(Messages.render(data.results[i]));
+        }
+      }
       callback();
     });
   },
