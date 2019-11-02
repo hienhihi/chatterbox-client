@@ -1,9 +1,12 @@
 var Rooms = {
 
+  add: function() {
+    var newRoom = window.prompt();
+    RoomsView.renderRoom(newRoom);
+  },
+
   render: _.template(`
-      <div class="chat">
-        <div>Room: <%= roomname %></div>
-      </div>
+      <option  value="<%-roomname %>"> <%-roomname %></option>
     `)
 
 };
